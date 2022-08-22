@@ -6,7 +6,7 @@ export default function Navbar() {
         here
       </div>
       <div>
-        <button className='bg-grey m-2 hover:scale-105 cursor-pointer hover:brightness-125 rounded-xl lg:px-10 lg:py-2 text-white text-body text-center'>
+        <button className='bg-green m-2 hover:scale-105 cursor-pointer hover:brightness-125 rounded-xl lg:px-10 lg:py-2 text-white text-body text-center'>
           User
         </button>
       </div>

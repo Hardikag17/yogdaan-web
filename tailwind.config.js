@@ -20,7 +20,9 @@ module.exports = {
         darkblue: 'rgb(55, 112, 255)',
         white: 'rgb(245, 247, 247)',
         whiteish: '#fff',
-        grey: 'rgb(142, 152, 156)',
+        grey: '#F0F5F5',
+        green: '#023020',
+        black: '#0E0E0E',
       },
       fontSize: {
         small: ['13px'],
