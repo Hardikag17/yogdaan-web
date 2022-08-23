@@ -38,45 +38,27 @@ export default function Body() {
             accountType: _accountType,
           });
 
-          console.log(state.account);
+          if (state) {
+            console.log(state.account);
 
-          var accountType = await state.YogdaanContract.methods
-            .accountType(state.account)
-            .call({
-              from: state.account,
-            });
+            if (_accountType == 1) {
+              var accountExists = await state.YogdaanContract.methods
+                .addressToSHGid(state.account)
+                .call({
+                  from: state.account,
+                });
 
-          console.log('accountType:', accountType);
-
-          if (accountType == 1 && _accountType == 1) {
-            router.push('/user');
-          }
-
-          if (accountType == 2 && _accountType == 2) {
-            router.push('/serviceprovider');
-          }
-
-          if (accountType == 0) {
-            var addToPlatform = await state.YogdaanContract.methods
-              .login(_accountType)
-              .send({
-                from: state.account,
-              });
-
-            console.log('New Account Type:', addToPlatform);
-
-            var accountType = await state.YogdaanContract.methods
-              .accountType(`${state.account}`)
-              .call({
-                from: state.account,
-              });
-          }
-          if (accountType == 1 && _accountType == 1) {
-            router.push('/user');
-          } else if (accountType == 2 && _accountType == 2) {
-            router.push('/serviceprovider');
-          } else {
-            alert('Something went wrong!!');
+              if (accountExists) router.push('/shgs');
+              else router.push('/registration');
+            } else {
+              var accountExists = await state.YogdaanContract.methods
+                .addressToBankid(state.account)
+                .call({
+                  from: state.account,
+                });
+              if (accountExists) router.push('/bank');
+              else alert('Kindly contact the Platform Admins');
+            }
           }
         }
       } catch (e) {
