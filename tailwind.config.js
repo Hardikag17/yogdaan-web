@@ -14,7 +14,6 @@ module.exports = {
         bold: ['bold', 'sans-serif'],
         extrabold: ['extrabold', 'sans-serif'],
       },
-
       colors: {
         blue: 'rgb(35, 104, 251)',
         darkblue: 'rgb(55, 112, 255)',
@@ -23,6 +22,7 @@ module.exports = {
         grey: '#F0F5F5',
         green: '#023020',
         black: '#0E0E0E',
+        red: '#E74C3C',
       },
       fontSize: {
         small: ['13px'],

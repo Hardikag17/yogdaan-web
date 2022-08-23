@@ -1,9 +1,6 @@
-import { useState, useContext } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 
 export default function RequestBank() {
-  const [fileUrl, setFileUrl] = useState();
-
   const [formInput, updateFormInput] = useState({
     shgid: '',
     amount: '',
@@ -30,59 +27,59 @@ export default function RequestBank() {
   return (
     <div className=' font-semibold text-center'>
       <div>
-        <div className='bg-white flex items-center rounded-lg border-2 border-solid border-green shadow-xl'>
-          <label className=' text-black  border-2 border-green border-solid  focus:outline-none w-24 h-12 flex items-center justify-center'>
+        <div className='bg-white flex items-center rounded-lg border-4 border-solid border-green shadow-xl'>
+          <label className=' text-black  border-2 border-green border-solid  focus:outline-none w-36 h-12 flex items-center justify-center'>
             {' '}
             SHG id
           </label>
           <input
-            className='rounded-l bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
+            className=' bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
             type='text'
             onChange={(e) =>
               updateFormInput({ ...formInput, shgid: e.target.value })
             }
             placeholder='shgid'
           />
-          <button className=' text-black rounded-lg border-2 border-solid border-green focus:outline-none w-24 h-12 flex items-center justify-center'>
+          <button className=' text-black border-2 border-solid border-green focus:outline-none w-36 h-12 flex items-center justify-center'>
             check
           </button>
         </div>
         <br />
-        <div className='bg-white flex flex-col items-center rounded-lg border-2 border-solid border-green shadow-xl'>
-          <div className=' bg-white w-full h-12 mx-2 items-center rounded-lg border-2 border-solid border-green shadow-xl flex flex-nowrap flex-row justify-around'>
-            <label className=' text-black h-full  border-2 border-solid border-green focus:outline-none w-48 '>
+        <div className='bg-white flex flex-col rounded-lg items-center border-4 border-solid border-green shadow-xl'>
+          <div className=' bg-white w-full h-12 mx-2 items-center border-2 border-solid border-green shadow-xl flex flex-nowrap flex-row justify-around'>
+            <label className=' text-black h-full  border-2 border-solid border-green focus:outline-none w-36 flex items-center justify-center'>
               {' '}
               Amount
             </label>
             <input
-              className='rounded-l h-full bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
+              className=' h-full bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
               type='number'
               onChange={(e) =>
                 updateFormInput({ ...formInput, loanTime: e.target.value })
               }
               placeholder='5000 INR'
             />
-            <button className=' text-black rounded-lg border-2 border-solid border-green focus:outline-none w-24 h-12 flex items-center justify-center'>
+            <button className=' text-black border-2 border-solid border-green focus:outline-none w-36 h-12 flex items-center justify-center'>
               ~ 50 MATIC
             </button>
           </div>
         </div>
         <br />
-        <div className=' flex flex-row '>
-          <div className=' bg-white w-full h-12 mx-2 items-center rounded-lg border-2 border-solid border-green shadow-xl flex flex-nowrap flex-row justify-around'>
-            <label className=' text-black h-full  border-2 border-solid border-green focus:outline-none w-48 '>
+        <div className='bg-white flex flex-row rounded-lg items-center border-4 border-solid border-green shadow-xl'>
+          <div className=' bg-white w-full h-12 items-center border-2 border-solid border-green shadow-xl flex flex-nowrap flex-row justify-around'>
+            <label className=' text-black h-full  border-2 border-solid border-green focus:outline-none w-36 flex items-center justify-center '>
               {' '}
               loan time
             </label>
             <input
-              className='rounded-l h-full bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
+              className=' h-full bg-white text-black w-full px-4 text-gray leading-tight focus:outline-none'
               type='number'
               onChange={(e) =>
                 updateFormInput({ ...formInput, loanTime: e.target.value })
               }
               placeholder='6 months'
             />
-            <div className=' text-black rounded-lg border-2 border-solid border-green focus:outline-none w-24 h-12 flex items-center justify-center'>
+            <div className=' text-black border-2 border-solid border-green focus:outline-none w-36 h-12 flex items-center justify-center'>
               Months
             </div>
           </div>

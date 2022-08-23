@@ -3,8 +3,8 @@ import {
   Store as NotificationStore,
 } from 'react-notifications-component';
 
-// Binance testnet
-export const NET_ID = 97;
+// Polygon Testnet
+export const NET_ID = 80001;
 
 export const RPC_URL =
   process.env.ALCHEMY_POLYGON_MUMBAI_RPC_URL ??

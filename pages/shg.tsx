@@ -1,10 +1,10 @@
 import { useState } from 'react';
 // File imports
-import AddToForum from '../components/shg/addToForum';
+import AddToForum from '../components/shg/AddToForum';
 import Approved from '../components/shg/Approved';
 import Details from '../components/shg/Details';
 import Requests from '../components/shg/Requests';
-import RequestBank from '../components/shg/requestBank';
+import RequestBank from '../components/shg/RequestBank';
 
 export default function Shg() {
   const [state, setState] = useState(0);
