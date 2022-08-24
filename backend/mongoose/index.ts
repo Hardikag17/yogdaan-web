@@ -8,6 +8,7 @@ export default async function handler(
 ) {
   try {
     await dbConnect();
+    console.log('database connected');
   } catch (e) {
     console.error(e);
     res.send('database connection error');
@@ -15,7 +16,7 @@ export default async function handler(
 
   if (req.method == 'GET') {
     try {
-      let result = await forum;
+      let result = await forum.find();
       return res.json({
         message: JSON.parse(JSON.stringify(result)),
         success: true,

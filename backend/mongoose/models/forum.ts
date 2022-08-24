@@ -8,9 +8,8 @@ const forumSchema = new mongoose.Schema(
       immutable: true,
       required: true,
     },
-    shgImage: {
-      data: Buffer,
-      contentType: String,
+    title: {
+      type: String,
       required: true,
     },
     description: {
@@ -18,10 +17,9 @@ const forumSchema = new mongoose.Schema(
       immutable: true,
       required: true,
     },
-    img: {
+    imgUri: {
       data: Buffer,
       contentType: String,
-      required: true,
     },
     location: {
       type: String,
@@ -31,4 +29,4 @@ const forumSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.auth || mongoose.model('forum', forumSchema);
+export default mongoose.models.forum || mongoose.model('forum', forumSchema);

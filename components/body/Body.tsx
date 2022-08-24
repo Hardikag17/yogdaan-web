@@ -3,13 +3,38 @@ import YogdaanContract from '../../truffle/abis/Yogdaan.json';
 import { NET_ID } from '../../utils/helpers';
 import Web3 from 'web3';
 import type { AbiItem } from 'web3-utils';
-import { useContext } from 'react';
+import { useContext, useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import Forum from './forum';
 
 export default function Body() {
   const router = useRouter();
   const { state, setState } = useContext(YogdaanContext);
+
+  const [forums, addForums] = useState<ForumMetadata[]>([]);
+
+  const loadForums = useCallback(async () => {
+    try {
+      await axios
+        .get('/api/mongoose')
+        .then(function (response) {
+          console.log(response);
+          addForums(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch (error) {
+      console.log('error:', error);
+    }
+  }, [forums]);
+
+  useEffect(() => {
+    if (state.walletConnected && forums.length === 0) {
+      loadForums();
+    }
+  });
 
   const connectToWallet = async (_accountType: number) => {
     if (window.ethereum) {
@@ -97,9 +122,9 @@ export default function Body() {
         <h1 className=' text-3xl font-extrabold py-2'>Discussion forum</h1>
         <div className=' h-[500px] my-2 overflow-y-scroll snap snap-y snap-mandatory flex flex-row flex-wrap hide-scroll-bar justify-center'>
           <Forum />
-          <Forum />
-          <Forum />
-          <Forum />
+          {forums.map((item, index) => {
+            return <Forum key={index} data={item} />;
+          })}
         </div>
       </div>
     </div>
